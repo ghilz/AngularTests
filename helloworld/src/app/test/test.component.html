@@ -1,0 +1,62 @@
+<p>
+  Questo è nuovo component, guarda come sono bello!!!
+  <br />
+  Io mi chiamo {{myName}}
+</p>
+<p [class] = "blueClass">
+  Risultato {{2+2}} 
+  <br />
+  COncatenazione string {{"Welcome " + myName}}
+  <br />
+  Lunghezza nome {{myName.length}}
+  <br />
+  {{thisIsAMethod()}}
+  <br />
+  URL: {{currentUrl}}
+</p>
+<p [class.classBool] = "sonoBooleano">
+Ciao
+</p>
+<p [ngClass] = "messageClass">
+  Ciao giallo
+  </p>
+  <p>
+    <input id = "idqualunque" [disabled]="abilitaInput" [type]="tipoinput" value="ciaooo" />
+    <input id = "idqualunque" [disabled]="abilitaInput" type={{tipoinput}} value="ciaooo" />
+    <input id = "idqualunque" #newInput (change)="inputChanged(newInput)" bind-disabled="abilitaInput" type={{tipoinput}} value="ciaooo" />
+  </p>
+
+  <h3 [style.color]="hasError ? 'red' : 'green'">TESTO COLORATO STYLE</h3>
+  
+  <h3 [ngStyle]="styleToAdd">TESTO italico STYLE</h3>
+<button (click)="ilMioMetodo($event)">Click me</button>
+{{greeting}}
+
+<input [(ngModel)]="ngModelTest">{{ngModelTest}}
+
+<div *ngIf="displayNgIf; then thenBlocco; else elseBlocco"></div>
+<ng-template #thenBlocco>  
+<h2>NGIF</h2>
+</ng-template>
+
+<ng-template #elseBlocco>
+  <h2>Sono l'else</h2>
+</ng-template>
+
+<div [ngSwitch] = "colorSwitch">
+  <div *ngSwitchCase = "'red'">Color Red</div>
+  <div *ngSwitchCase = "'yellow'">Color Yellow</div>
+</div>
+
+<div *ngFor="let item of employees">
+  <h3>{{item.name}} {{item.lastName}}</h3>
+</div>
+
+<!-- sono tutte parole chiave per numero indice, booleano per primo della lista, booleano per ultimo, booleano per dispari-->
+<div *ngFor="let item of someArray; index as k; first as f; last as l; odd as o">
+  <h3>{{f}} {{k}} {{item}} {{l}} {{o}}</h3>
+</div>
+
+<h2>{{date | date: 'short'}}</h2>
+<h2>{{date | date: 'shortDate'}}</h2>
+<h2>{{date | date: 'shortTime'}}</h2>
